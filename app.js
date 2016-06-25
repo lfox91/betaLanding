@@ -1,3 +1,10 @@
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const add = require('./controller/email.js');
+const validate = require('./middleware/validate.js');
+const app = express();
 const http         = require('http'),
       fs           = require('fs'),
       path         = require('path'),
@@ -5,11 +12,11 @@ const http         = require('http'),
       sysInfo      = require('./utils/sys-info'),
       env          = process.env;
 
-let server = http.createServer(function (req, res) {
-  let url = req.url;
-  if (url == '/') {
-    url += 'index.html';
-  }
+// let server = http.createServer(function (req, res) {
+//   let url = req.url;
+//   if (url == '/') {
+//     url += 'index.html';
+//   }
 
   // IMPORTANT: Your application HAS to respond to GET /health with status 200
   //            for OpenShift health monitoring

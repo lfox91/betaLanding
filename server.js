@@ -6,7 +6,7 @@ const  express      = require('express'),
        validate     = require('./middleware/validate.js'),
        contentTypes = require('./utils/content-types'),
        sysInfo      = require('./utils/sys-info'),
-       port         = process.env.PORT || 3000, 
+       env          = process.env,
        app          = express();
 
 // default to a 'localhost': configuration:
