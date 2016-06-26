@@ -22,7 +22,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
 
 mongoose.connect(connection_string);
 
-app.use(express.static(__dirname +'/diy'));
+app.use(express.static(__dirname +'/static'));
 app.use(morgan('dev'));                                         // log with Morgan
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.urlencoded({extended: true}));               // parse application/x-www-form-urlencoded
@@ -36,6 +36,12 @@ app.get('/health', function(req, res){
   res.writeHead(200);
   res.end();
 } );
+
+app.get('/info/gen' || '/info/poll', function(req, res){
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Cache-Control', 'no-cache, no-store');
+  res.end(JSON.stringify(sysInfo[url.slice(6)]())); 
+});
 
 app.post('/save', validate, add, function(req, res){
   var email = req.body.email;
