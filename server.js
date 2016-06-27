@@ -29,9 +29,8 @@ app.use(bodyParser.urlencoded({extended: true}));               // parse applica
 app.use(bodyParser.text());                                     // allows bodyParser to look at raw text
 
 app.get('/', function(req, res){
-  // res.send('/diy/index.html');
-    res.writeHead(200);
-    res.end();
+  res.writeHead(200);
+  res.send('/diy/index.html');
 })
 
 app.get('/health', function(req, res){
