@@ -28,9 +28,11 @@ app.use(bodyParser.json());                                     // parse applica
 app.use(bodyParser.urlencoded({extended: true}));               // parse application/x-www-form-urlencoded
 app.use(bodyParser.text());                                     // allows bodyParser to look at raw text
 
-// app.get('/', function(req, res){
-//   res.send('/diy/index.html');
-// })
+app.get('/', function(req, res){
+  // res.send('/diy/index.html');
+    res.writeHead(200);
+    res.end();
+})
 
 app.get('/health', function(req, res){
   res.writeHead(200);
