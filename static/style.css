@@ -1,0 +1,28 @@
+* { margin: 0; padding: 0; color: rgb(184, 164, 162);}
+#bg {
+ z-index: -1;
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+}
+#container {
+ text-align: center;
+ width: 100vw;
+ height: 100vh;
+ display: -webkit-flex;
+ display: -moz-flex;
+ display: -ms-flex;
+ display: -o-flex;
+ display: flex;
+ -webkit-flex-flow: column;
+ -moz-flex-flow: column;
+ -ms-flex-flow: column;
+ -o-flex-flow: column;
+ flex-flow: column;
+ justify-content: space-around;
+ -ms-align-items: center;
+ align-items: center;
+ align-content: space-around;
+}
