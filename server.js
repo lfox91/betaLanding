@@ -6,7 +6,7 @@ const  express      = require('express'),
        add          = require('./controller/email.js'),
        validate     = require('./middleware/validate.js'),
        env          = process.env,
-       db_name      = centerstage,
+       db_name      = "centerstage",
        app          = express();
 
 //provide a sensible default for local development
