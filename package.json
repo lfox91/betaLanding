@@ -5,11 +5,20 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start": "node server.js",
     "dev-start": "nodemon server.js"
   },
   "repository": {
     "type": "git"
+=======
+    "start": "node start.js",
+    "dev-start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://576d853b2d5271352f000107@main-centerstage.rhcloud.com/~/git/main.git/"
+>>>>>>> c32152ea4582ca506e11eae6defc10f03457ffc9
   },
   "keywords": [
     "landing",
@@ -24,6 +33,10 @@
     "express": "^4.14.0",
     "mongoose": "^4.5.1",
     "morgan": "^1.7.0"
+<<<<<<< HEAD
   },
   "devDependencies": {}
+=======
+  }
+>>>>>>> c32152ea4582ca506e11eae6defc10f03457ffc9
 }
