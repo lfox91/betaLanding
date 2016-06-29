@@ -1,4 +1,4 @@
-const emailModel = require("../model/schema.js");
+var emailModel = require("../model/schema.js");
 
 module.exports = function (req, res, next) {
   var email = new emailModel ({ email: req.body.email });
@@ -10,3 +10,4 @@ module.exports = function (req, res, next) {
 
   next();
 }
+

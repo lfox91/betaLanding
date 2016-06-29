@@ -6,11 +6,10 @@ const  express      = require('express'),
        add          = require('./controller/email.js'),
        validate     = require('./middleware/validate.js'),
        env          = process.env,
-       db_name      = "centerstage",
        app          = express();
 
 //provide a sensible default for local development
-var mongodb_connection_string = 'mongodb://127.0.0.1:27017/' + db_name;
+var mongodb_connection_string = 'mongodb://127.0.0.1:27017';
 //take advantage of openshift env vars when available:
 if(process.env.MONGODB_URI){
   mongodb_connection_string = process.env.MONGODB_URI;
