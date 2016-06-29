@@ -1,7 +1,7 @@
 var Isemail = require('isemail');
 
 module.exports = function (req, res, next) {
-  if(Isemail(req.body.email)) {
+  if(Isemail.validate(req.body.email)) {
     console.log('email validated')
     next();
   }   
