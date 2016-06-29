@@ -8,5 +8,7 @@ var Schema = mongoose.Schema;
 var EmailSchema = new Schema({
   email: { type: String, default: '' },
 });
+
 var emailModel = mongoose.model('Email', EmailSchema);
-exports.EmailModel = emailModel;
+
+module.exports = emailModel;
