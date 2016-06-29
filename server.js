@@ -15,7 +15,7 @@ mongodb_connection_string = 'mongodb://127.0.0.1:27017/' + db_name;
 if(process.env.OPENSHIFT_MONGODB_DB_URL){
   mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + db_name;
 }
-
+app.set('port', (process.env.PORT || 5000));
 app.use(express.static('static'));
 app.use(morgan('dev'));                                         // log with Morgan
 app.use(bodyParser.json());                                     // parse application/json
@@ -27,7 +27,8 @@ app.post('/save', validate, add, function(req, res){
   res.send(email);
 } );
 
-app.listen(env.PORT || 3000, env.NODE_IP || '127.0.0.1', function() {
-  console.log("Server running...");
+var port = app.get(port);
+app.listen(port, function() {
+  console.log(`Server running on ${port}...`);
 
 });
