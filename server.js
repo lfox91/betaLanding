@@ -26,7 +26,7 @@ app.post('/save', validate, add, function(req, res){
   res.send(email);
 } );
 
-app.listen(env.NODE_PORT || 8080, env.NODE_IP || '127.0.0.1', function() {
+app.listen(env.PORT || 3000, env.NODE_IP || '127.0.0.1', function() {
   console.log("Server running...");
 
 });
