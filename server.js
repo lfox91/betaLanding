@@ -1,13 +1,13 @@
 ////////////////////////
 // Initialize Variables
 ////////////////////////
-var  express      = require('express'),
+var    express      = require('express'),
        morgan       = require('morgan'),
        bodyParser   = require('body-parser'),
        mongoose     = require('mongoose'),
        add          = require('./controller/email.js'),
        validate     = require('./middleware/validate.js'),
-       jade         = require('jade'),
+       jade         = require('pug'),
        env          = process.env,
        app          = express();
 
