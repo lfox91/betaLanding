@@ -38,6 +38,9 @@ app.use(bodyParser.text());                                     // allows bodyPa
 // TODO: REPLACE WITH ROUTE FILE
 // routes
 /////////////////////////////////
+app.get('/', function (req, res) {
+  res.render('index');
+});
 app.post('/save', validate, add, function(req, res){
   var email = req.body.email;
   res.send(email);
