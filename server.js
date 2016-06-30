@@ -1,7 +1,7 @@
 ////////////////////////
 // Initialize Variables
 ////////////////////////
-const  express      = require('express'),
+var  express      = require('express'),
        morgan       = require('morgan'),
        bodyParser   = require('body-parser'),
        mongoose     = require('mongoose'),
@@ -15,7 +15,7 @@ const  express      = require('express'),
 // Mongo Db Connection
 //////////////////////////
 //provide a sensible default for local development
-let mongodb_connection_string = 'mongodb://127.0.0.1:27017';
+var mongodb_connection_string = 'mongodb://127.0.0.1:27017';
 //take advantage of heroku env vars when available:
 if(process.env.MONGODB_URI){
   mongodb_connection_string = process.env.MONGODB_URI;
@@ -39,11 +39,11 @@ app.use(bodyParser.text());                                     // allows bodyPa
 // routes
 /////////////////////////////////
 app.post('/save', validate, add, function(req, res){
-  let email = req.body.email;
+  var email = req.body.email;
   res.send(email);
 } );
 
-let port = app.get('port');
+var port = app.get('port');
 
 // Compile a function
 // var html = jade.renderFile('./static/index.ejs', {debug:true});
