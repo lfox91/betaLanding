@@ -26,7 +26,7 @@ mongoose.connect(mongodb_connection_string);
 ///////////////////////////////
 // App globals
 ////////////////////////////////
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 3000));
 app.set('view engine', 'pug');
 app.use(express.static('static'));
 app.use(morgan('dev'));                                         // log with Morgan
@@ -39,11 +39,11 @@ app.use(bodyParser.text());                                     // allows bodyPa
 // routes
 /////////////////////////////////
 app.get('/', function (req, res) {
-  res.render('index');
+  res.render('index', { submitted: false });
 });
 app.post('/save', validate, add, function(req, res){
   var email = req.body.email;
-  res.send(email);
+  res.render('index', { submitted: true });
 } );
 
 var port = app.get('port');
