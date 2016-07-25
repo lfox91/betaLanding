@@ -9,16 +9,20 @@ var    express      = require('express'),
        validate     = require('./middleware/validate.js'),
        jade         = require('pug'),
        env          = process.env,
+       port         = env.PORT || 3000,
        app          = express();
+
+process.title = 'center_stage_app';
 
 //////////////////////////
 // Mongo Db Connection
 //////////////////////////
+
 //provide a sensible default for local development
 var mongodb_connection_string = 'mongodb://127.0.0.1:27017';
 //take advantage of heroku env vars when available:
-if(process.env.MONGODB_URI){
-  mongodb_connection_string = process.env.MONGODB_URI;
+if(env.MONGODB_URI){
+  mongodb_connection_string = env.MONGODB_URI;
 }
 
 mongoose.connect(mongodb_connection_string);
@@ -26,7 +30,6 @@ mongoose.connect(mongodb_connection_string);
 ///////////////////////////////
 // App globals
 ////////////////////////////////
-app.set('port', (process.env.PORT || 3000));
 app.set('view engine', 'pug');
 app.use(express.static('static'));
 app.use(morgan('dev'));                                         // log with Morgan
@@ -41,15 +44,10 @@ app.use(bodyParser.text());                                     // allows bodyPa
 app.get('/', function (req, res) {
   res.render('index', { submitted: false });
 });
+
 app.post('/save', validate, add, function(req, res){
-  var email = req.body.email;
-  res.render('index', { submitted: true });
+  res.render('index', {submitted: true});
 } );
-
-var port = app.get('port');
-
-// Compile a function
-// var html = jade.renderFile('./static/index.ejs', {debug:true});
 
 app.listen(port, function() {
   console.log(`Server running on ${port}...`);

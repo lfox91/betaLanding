@@ -1,28 +1,94 @@
-* { margin: 0; padding: 0; color: rgb(184, 164, 162);}
-#bg {
- z-index: -1;
- position: absolute;
- top: 0;
- left: 0;
- width: 100vw;
- height: 100vh;
+* { margin: 0; padding: 0; }
+@font-face {
+    font-family: "Abastina";
+    src: url("abastina.otf"); format("opentype");
 }
-#container {
- text-align: center;
- width: 100vw;
- height: 100vh;
- display: -webkit-flex;
- display: -moz-flex;
- display: -ms-flex;
- display: -o-flex;
- display: flex;
- -webkit-flex-flow: column;
- -moz-flex-flow: column;
- -ms-flex-flow: column;
- -o-flex-flow: column;
- flex-flow: column;
- justify-content: space-around;
- -ms-align-items: center;
- align-items: center;
- align-content: space-around;
+body {
+  color: rgb(241, 241, 241);
+  font-size:16px;
+  text-shadow: -.1em .1em .2em black;
+  font-family: Roboto, Helvetica, Sans-serif;
+  background: black;
+  text-align: center;
 }
+#wrapper {
+  z-index: -1;
+  max-width: 1600px;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(backpack_woman.jpg);
+  background-size: cover;
+  background-repeat: none;
+}
+
+.letter_wrappers {
+  padding-top: 5%;
+}
+
+.cs {
+  height: 50vh;
+  width: 15.8vh;
+  vertical-align: text-bottom;
+}
+.chunks {
+  text-shadow: 1px 2px 5px black;
+  letter-spacing: 0.1em;
+  font-family: "Abastina", Helvetica, Sans-serif;
+  text-align: center;
+  display: inline;
+  opacity: 0;
+  font-size: 8em;
+  font-variant: small-caps;
+}
+section {
+  height: 40vh;
+  padding: 7.5vh;
+}
+.appear {
+  animation: appear 1s linear 2s forwards ;
+}
+/*.slideLeft {
+  animation: slideLeft 2s linear 2s forwards ;
+}
+.slideRight {
+  animation: slideRight 2s linear 2s forwards ;
+}*/
+
+#s { z-index: 0; left: 1%; }
+#c { z-index: 1;}
+
+label {
+  font-size: 1.5em;
+  margin-bottom: 5%;
+}
+
+button {
+  margin-top: 5%;
+}
+
+@-webkit-keyframes appear {
+  from { opacity: 0; display: inline;}
+  to   { display: inline; opacity: 100;}
+}
+@-webkit-keyframes appear {
+  from { opacity:0; display: inline;}
+  to   { display: inline; opacity:100}
+}
+/*@-webkit-keyframes slideLeft {
+  from { position: absolute; left: 0;}
+  to   { position: absolute; left: -50%;}
+}
+@-webkit-keyframes slideRight {
+  from { position: absolute; left: 0;}
+  to   { position: absolute; left: 50%;}
+}
+@keyframes slideLeft {
+  from { position: absolute; left: 0;}
+  to   { position: absolute; left: -50%;}
+}
+@keyframes slideRight {
+  from { position: absolute; left: 0;}
+  to   { position: absolute; left: 50%;}
+}*/
+/* @media only screen and (min-width:480px) and (max-width: 640px)  {...} */
+/* @media only screen and (max-width: 479px)  {...} */

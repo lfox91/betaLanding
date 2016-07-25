@@ -7,7 +7,7 @@ module.exports = function (req, res, next) {
     if (err) console.error(err);
     else{
       console.log(emailData + "saved to database");
-      next();
+      next(); 
     }
   });
 }

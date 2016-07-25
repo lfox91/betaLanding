@@ -6,29 +6,46 @@ html( lang='en-US' )
     meta( name='viewport', content='width=device-width, initial-scale=1' )
     meta( name='application-name', content='Center Stage' )
     meta( name='description', content='A new social network for casting' )
-    meta( name='keywords', content='social media, actors, network, portfolio, actress, model, casting, center stage' ) 
-    link( rel='stylesheet', href='static/style.css' )
+    meta( name='keywords', content='social media, actors, network, portfolio, actress, model, casting, center stage' )
+    <!-- Latest compiled and minified CSS -->
+    link( rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
+
+    <!-- Optional theme -->
+    link( rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous")
+
+    <!-- Latest compiled and minified JavaScript -->
+    script( src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous") 
+    link( rel='stylesheet', href='style.css' )
+    link( href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet', type='text/css' )
     title Center Stage
      
   body 
-    img( id='bg', src='stage.jpg' )
-    div( id='container' )
-      header 
-        h1 Center Stage
-        h2 Coming Soon!
-      
-      // if !submitted
-      form( action='save', method='post' )
-        label( for='email' )  Subscribe for updates and beta testing 
-        br  
-        input( id='email', name='email', type='email', placeholder='example@mail.com' )  
-        input( type='submit', value='Submit' ) 
-      // else 
-        p 
-          | Your information has been submitted
-          blockquote
-            | On behalf of Censter Stage, Thank you for taking the time to sign up
-            br
-            | <em> -Center Stage Team </em>
-    script( rel='text/javscript', src='./static/main.js' ) 
-
+    div( class='fluid-container', id='wrapper' )
+      div( class="row")
+        header
+          div( id="logo_wrapper" class='row col-md-8 col-md-offset-2' )
+            span( id="c", class="letter_wrappers col-md-5 col-md-offset-1" )
+              img( class="cs", src="C.svg", alt="C of logo Center Stage" )
+              p( class="chunks") enter
+            span( id="s", class="letter_wrappers col-md-5" )
+              img( class="cs", src="S.svg", alt="S of Logo Center Stage" )
+              p( class="chunks") tage
+     
+      section( class='container' )
+        if !submitted  
+          form( class='row', id='emailForm', action='save', method='post' )
+            div( class='col-md-6 col-md-offset-3 form-group')
+              label( for='email' ) Input your email for updates and beta testing
+              input( class='form-control', id='email', name='email', type='email' )
+              button( class="btn btn-primary btn-lg", type="submit", form="emailForm", value="Submit") Submit 
+        else 
+          div( class='col-md-6 col-md-offset-3')
+            p 
+              | Your information has been submitted
+              blockquote 
+                | On behalf of Censter Stage, thank you for taking the time to sign up.
+              br
+              p <em> -The Center Stage Team </em>
+    
+    script( src="animation.js")
+  
