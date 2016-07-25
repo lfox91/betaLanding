@@ -1,16 +1,17 @@
 ////////////////////////
 // Initialize Variables
 ////////////////////////
-var    express      = require('express'),
-       morgan       = require('morgan'),
-       bodyParser   = require('body-parser'),
-       mongoose     = require('mongoose'),
-       add          = require('./controller/email.js'),
-       validate     = require('./middleware/validate.js'),
-       jade         = require('pug'),
-       env          = process.env,
-       port         = env.PORT || 3000,
-       app          = express();
+var  express      = require('express'),
+     morgan       = require('morgan'),
+     bodyParser   = require('body-parser'),
+     mongoose     = require('mongoose'),
+     add          = require('./controller/email.js'),
+     validate     = require('./middleware/validate.js'),
+     jade         = require('pug'),
+     env          = process.env,
+     port         = env.PORT || 3000,
+     app          = express(),
+     compression = require('compression');
 
 process.title = 'center_stage_app';
 
@@ -36,6 +37,7 @@ app.use(morgan('dev'));                                         // log with Morg
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.urlencoded({extended: true}));               // parse application/x-www-form-urlencoded
 app.use(bodyParser.text());                                     // allows bodyParser to look at raw text
+app.use(compression());
 
 /////////////////////////////////
 // TODO: REPLACE WITH ROUTE FILE
